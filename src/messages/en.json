@@ -1,7 +1,28 @@
+
 {
   "HomePage": {
     "title": "Welcome to NOVA",
     "description": "Discover and shop your favorite products.",
     "testButton": "Explore Products"
+  },
+  "Header": {
+    "searchPlaceholder": "Search products...",
+    "categories": "Categories",
+    "cart": "Cart",
+    "home": "Home"
+  },
+  "Footer": {
+    "description": "A Store for Everyone",
+  "usefulLinks": "Useful Links",
+  "shoppingGuide": "Shopping Guide",
+  "home": "Home",
+  "categories": "Categories",
+  "aboutUs": "About Us",
+  "contactUs": "Contact Us",
+  "howToOrder": "How to Order",
+  "shippingInfo": "Shipping Information",
+  "returnPolicy": "Return Policy",
+  "faq": "FAQ",
+  "copyright": "All rights reserved."
   }
 }

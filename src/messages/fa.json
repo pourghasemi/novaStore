@@ -1,7 +1,28 @@
+
 {
   "HomePage": {
     "title": "به NOVA خوش آمدید",
     "description": "محصولات مورد علاقه خود را پیدا و خریداری کنید.",
     "testButton": "مشاهده محصولات"
+  },
+  "Header": {
+    "searchPlaceholder": "جستجوی محصولات...",
+    "categories": "دسته‌بندی‌ها",
+    "cart": "سبد خرید",
+    "home": "خانه"
+  },
+  "Footer": {
+    "description": "فروشگاهی برای همه",
+  "usefulLinks": "لینک‌های مفید",
+  "shoppingGuide": "راهنمای خرید",
+  "home": "خانه",
+  "categories": "دسته‌بندی‌ها",
+  "aboutUs": "درباره ما",
+  "contactUs": "تماس با ما",
+  "howToOrder": "نحوه ثبت سفارش",
+  "shippingInfo": "اطلاعات ارسال",
+  "returnPolicy": "شرایط بازگشت کالا",
+  "faq": "سؤالات متداول",
+  "copyright": "تمامی حقوق محفوظ است."
   }
 }

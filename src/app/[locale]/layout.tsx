@@ -5,12 +5,13 @@ import { notFound } from 'next/navigation';
 
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages } from 'next-intl/server';
+import localFont from 'next/font/local';
 
 import StyledComponentsRegistry from '@/styles/StyledComponentsRegistry';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { routing } from '@/i18n/routing';
 import type { ThemeMode } from '@/types/theme';
-
+import MainLayout from '@/components/layout/MainLayout';
 
 export const metadata: Metadata = {
   title: 'NOVA | Online Store',
@@ -22,6 +23,25 @@ export function generateStaticParams() {
     locale,
   }));
 }
+
+const vazirmatn = localFont({
+  src: [
+    {
+      path: '../../assets/fonts/Vazirmatn/static/Vazirmatn-Regular.ttf',
+      weight: '400',
+    },
+    {
+      path: '../../assets/fonts/Vazirmatn/static/Vazirmatn-Bold.ttf',
+      weight: '700',
+    },
+  ],
+  variable: '--font-vazirmatn',
+});
+const inter = localFont({
+  src: '../../assets/fonts/Inter/static/Inter_18pt-Light.ttf',
+  weight: '100 900',
+  variable: '--font-inter',
+});
 
 export default async function RootLayout({
   children,
@@ -48,12 +68,15 @@ export default async function RootLayout({
     <html
       lang={locale}
       dir={locale === 'fa' ? 'rtl' : 'ltr'}
+      className={`${vazirmatn.variable} ${inter.variable}`}
     >
       <body>
         <StyledComponentsRegistry>
           <ThemeProvider initialTheme={initialTheme}>
             <NextIntlClientProvider messages={messages}>
-              {children}
+              <MainLayout>
+                {children}
+              </MainLayout>
             </NextIntlClientProvider>
           </ThemeProvider>
         </StyledComponentsRegistry>

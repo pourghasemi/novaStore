@@ -17,10 +17,14 @@ const GlobalStyles = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
-    font-family: Arial, sans-serif;
+    font-family: var(--font-inter), sans-serif;
     transition:
       background-color 0.2s ease,
       color 0.2s ease;
+  }
+
+  html[lang='fa'] body {
+    font-family: var(--font-vazirmatn), sans-serif;
   }
 
   button,
