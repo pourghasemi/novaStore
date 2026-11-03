@@ -1,0 +1,34 @@
+import { create } from 'zustand';
+import { getProducts } from '@/services/productService';
+import type { Product } from '@/types/product';
+
+interface ProductState {
+  products: Product[];
+  loading: boolean;
+  error: string | null;
+  fetchProducts: () => Promise<void>;
+}
+
+export const useProductStore = create<ProductState>((set) => ({
+  products: [],
+  loading: false,
+  error: null,
+
+  fetchProducts: async () => {
+    set({ loading: true, error: null });
+
+    try {
+      const products = await getProducts();
+
+      set({
+        products,
+        loading: false,
+      });
+    } catch {
+      set({
+        error: 'Failed to load products.',
+        loading: false,
+      });
+    }
+  },
+}));
