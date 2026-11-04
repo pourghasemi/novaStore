@@ -1,6 +1,8 @@
 
 {
   "HomePage": {
+    "metaTitle": "Online Store | NOVA",
+    "metaDescription": "Discover a wide range of products and enjoy a simple online shopping experience with NOVA.", 
     "title": "Welcome to NOVA",
     "description": "Discover and shop your favorite products.",
     "testButton": "Explore Products",
@@ -49,6 +51,7 @@
     "copyright": "All rights reserved."
   },
   "ProductDetails": {
+    "metaDescription": "Discover {product} at NOVA. View product details and pricing.",
     "loading": "Loading product...",
     "error": "Something went wrong.",
     "notFound": "Product not found.",
@@ -56,6 +59,8 @@
     "rating": "Rating"
   },
   "Cart": {
+    "metaTitle": "Shopping Cart",
+    "metaDescription": "View and manage the products in your NOVA shopping cart.",
     "title": "Shopping Cart",
     "empty": "Your cart is empty",
     "continueShopping": "Continue Shopping",

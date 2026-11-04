@@ -1,4 +1,6 @@
 
+'use client';
+
 import { ErrorMessageContainer } from './ErrorMessage.styles';
 
 interface ErrorMessageProps {

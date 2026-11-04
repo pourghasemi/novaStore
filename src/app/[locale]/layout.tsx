@@ -12,11 +12,17 @@ import { ThemeProvider } from '@/contexts/ThemeContext';
 import { routing } from '@/i18n/routing';
 import type { ThemeMode } from '@/types/theme';
 import MainLayout from '@/components/layout/MainLayout';
+import { getMetadata } from '@/config/metadata';
 
-export const metadata: Metadata = {
-  title: 'NOVA | Online Store',
-  description: 'Discover and shop your favorite products at NOVA.',
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  return getMetadata(locale);
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({
@@ -37,6 +43,7 @@ const vazirmatn = localFont({
   ],
   variable: '--font-vazirmatn',
 });
+
 const inter = localFont({
   src: '../../assets/fonts/Inter/static/Inter_18pt-Light.ttf',
   weight: '100 900',

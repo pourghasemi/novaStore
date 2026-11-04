@@ -1,3 +1,4 @@
+import { cache } from 'react';
 import axiosInstance from '@/api/axiosInstance';
 import type { Product, ProductCategory } from '@/types/product';
 
@@ -68,11 +69,15 @@ export const getProducts = async (): Promise<Product[]> => {
 };
 
 
-export const getProductById = async (id: number): Promise<Product> => {
-  const response = await axiosInstance.get<ApiProduct>(`/products/${id}`);
+export const getProductById = cache(
+  async (id: number): Promise<Product> => {
+    const response = await axiosInstance.get<ApiProduct>(
+      `/products/${id}`
+    );
 
-  return mapProduct(response.data);
-};
+    return mapProduct(response.data);
+  }
+);
 
 export const getProductCategories = async (): Promise<ProductCategory[]> => {
   const response = await axiosInstance.get<string[]>('/products/categories');
