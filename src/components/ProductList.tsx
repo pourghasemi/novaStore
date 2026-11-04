@@ -1,8 +1,10 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
+
+import { useProductStore } from '@/stores/productStore';
 
 import type {
   Product,
@@ -50,6 +52,15 @@ export default function ProductList({
 
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState<SortOption>('default');
+
+  const setProducts = useProductStore(
+    (state) => state.setProducts
+  );
+
+  // Sync server products with Zustand
+  useEffect(() => {
+    setProducts(initialProducts);
+  }, [initialProducts, setProducts]);
 
   // Read category from URL
   const categoryParam = searchParams.get('category');

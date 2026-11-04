@@ -1,4 +1,3 @@
-
 import { create } from 'zustand';
 
 import type { Product, ProductCategory } from '@/types/product';
@@ -18,6 +17,7 @@ interface ProductState {
   categoriesLoading: boolean;
   categoriesError: string | null;
 
+  setProducts: (products: Product[]) => void;
   fetchProducts: () => Promise<void>;
   fetchCategories: () => Promise<void>;
 }
@@ -31,6 +31,14 @@ export const useProductStore = create<ProductState>((set) => ({
 
   categoriesLoading: false,
   categoriesError: null,
+
+  setProducts: (products) => {
+    set({
+      products,
+      loading: false,
+      error: null,
+    });
+  },
 
   fetchProducts: async () => {
     set({ loading: true, error: null });
