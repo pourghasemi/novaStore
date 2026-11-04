@@ -3,7 +3,7 @@
 
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/navigation';
-import { LanguageButton } from '../Header.styles';
+import { LanguageButton } from './LanguageSwitcher.style';
 
 interface LanguageSwitcherProps {
   onLanguageChange?: () => void;

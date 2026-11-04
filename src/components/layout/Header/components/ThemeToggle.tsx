@@ -2,7 +2,7 @@
 'use client';
 
 import { useTheme } from '@/contexts/ThemeContext';
-import { ActionButton } from '../Header.styles';
+import { ActionButton } from './ThemeToggle.styles';
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();

@@ -3,7 +3,7 @@
 
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import Logo from '@/shared/Logo/Logo';
+import Logo from '@/shared/Logo';
 
 import {
   FooterContainer,
@@ -45,8 +45,8 @@ export default function Footer() {
               </Link>
             </FooterLink>
 
-            <FooterLink>
-              <Link href="/">
+           <FooterLink>
+              <Link href="/#categories">
                 {t('categories')}
               </Link>
             </FooterLink>

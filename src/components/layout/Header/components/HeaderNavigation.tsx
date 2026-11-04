@@ -1,7 +1,8 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Navigation } from '../Header.styles';
+import { Link } from '@/i18n/navigation';
+import { Navigation } from './HeaderNavigation.styles';
 
 interface HeaderNavigationProps {
   variant?: 'desktop' | 'mobile';
@@ -16,9 +17,9 @@ export default function HeaderNavigation({
 
   return (
     <Navigation $variant={variant}>
-      <a href="#categories" onClick={onNavigate}>
+      <Link href="/#categories" onClick={onNavigate}>
         {t('categories')}
-      </a>
+      </Link>
     </Navigation>
   );
 }

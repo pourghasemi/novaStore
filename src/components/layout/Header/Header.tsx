@@ -2,11 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
-
-import { useTheme } from '@/contexts/ThemeContext';
-import { usePathname, useRouter } from '@/i18n/navigation';
-import Logo from '@/shared/Logo/Logo';
+import Logo from '@/shared/Logo';
 import HeaderSearch from './components/HeaderSearch';
 import HeaderNavigation from './components/HeaderNavigation';
 import CartButton from './components/CartButton';

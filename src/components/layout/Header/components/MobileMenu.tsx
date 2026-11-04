@@ -7,7 +7,7 @@ import { Link } from '@/i18n/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
 import HeaderSearch from './HeaderSearch'
 import HeaderNavigation from './HeaderNavigation'
-import { MobileMenuContainer } from '../Header.styles';
+import { MobileMenuContainer } from './MobileMenu.styles';
 
 interface MobileMenuProps {
   isOpen: boolean;
