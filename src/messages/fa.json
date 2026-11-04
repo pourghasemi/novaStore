@@ -7,12 +7,26 @@
     "shopNow": "مشاهده محصولات",
     "slide1": {
     "title": "جدیدترین محصولات نوا",
-    "description": "محصولات مورد علاقه خود را در نوا پیدا کنید."
+      "description": "محصولات مورد علاقه خود را در نوا پیدا کنید."
     },
     "slide2": {
-    "title": "تکنولوژی برای زندگی روزمره",
-    "description": "جدیدترین محصولات الکترونیکی را ببینید."
-    }
+     "title": "تکنولوژی برای زندگی روزمره",
+      "description": "جدیدترین محصولات الکترونیکی را ببینید."
+    },
+    "featuredProducts": "محصولات منتخب",
+    "sort": "مرتب‌سازی",
+    "default": "پیش‌فرض",
+    "titleAsc": "عنوان: الف تا ی",
+    "priceAsc": "قیمت: از کم به زیاد",
+    "priceDesc": "قیمت: از زیاد به کم",
+    "loadError": "دریافت محصولات با خطا مواجه شد.",
+    "noProductsInCategory": "محصولی در این دسته‌بندی پیدا نشد.",
+    "noProductsFound": "محصولی پیدا نشد.",
+    "sortBy": "مرتب‌سازی بر اساس",
+    "defaultSort": "پیش‌فرض",
+    "nameAsc": "نام",
+    "priceAsc": "ارزانترین",
+    "priceDesc": "گرانترین"
   },
   "Header": {
     "searchPlaceholder": "جستجوی محصولات...",
@@ -22,16 +36,34 @@
   },
   "Footer": {
     "description": "فروشگاهی برای همه",
-  "usefulLinks": "لینک‌های مفید",
-  "shoppingGuide": "راهنمای خرید",
-  "home": "خانه",
-  "categories": "دسته‌بندی‌ها",
-  "aboutUs": "درباره ما",
-  "contactUs": "تماس با ما",
-  "howToOrder": "نحوه ثبت سفارش",
-  "shippingInfo": "اطلاعات ارسال",
-  "returnPolicy": "شرایط بازگشت کالا",
-  "faq": "سؤالات متداول",
-  "copyright": "تمامی حقوق محفوظ است."
+    "usefulLinks": "لینک‌های مفید",
+    "shoppingGuide": "راهنمای خرید",
+    "home": "خانه",
+    "categories": "دسته‌بندی‌ها",
+    "aboutUs": "درباره ما",
+    "contactUs": "تماس با ما",
+    "howToOrder": "نحوه ثبت سفارش",
+    "shippingInfo": "اطلاعات ارسال",
+    "returnPolicy": "شرایط بازگشت کالا",
+    "faq": "سؤالات متداول",
+    "copyright": "تمامی حقوق محفوظ است."
+  },
+  "ProductDetails": {
+    "loading": "در حال دریافت محصول...",
+    "error": "مشکلی در دریافت اطلاعات پیش آمده است.",
+    "notFound": "محصول موردنظر پیدا نشد.",
+    "backToProducts": "بازگشت به محصولات",
+    "rating": "امتیاز"
+  },
+  "Cart": {
+    "title": "سبد خرید",
+    "empty": "سبد خرید شما خالی است",
+    "continueShopping": "ادامه خرید",
+    "remove": "حذف محصول",
+    "summary": "خلاصه سفارش",
+    "subtotal": "جمع محصولات",
+    "shipping": "هزینه ارسال",
+    "free": "رایگان",
+    "total": "مبلغ کل"
   }
 }

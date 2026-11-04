@@ -12,7 +12,21 @@
     "slide2": {
         "title": "Technology for Everyday Life",
         "description": "Explore our latest electronic products."
-    }
+    },
+    "featuredProducts": "Featured Products",
+    "sort": "Sort",
+    "default": "Default",
+    "titleAsc": "Title: A to Z",
+    "priceAsc": "Price: Low to High",
+    "priceDesc": "Price: High to Low",
+    "loadError": "Failed to load products.",
+    "noProductsInCategory": "No products found in this category.",
+    "noProductsFound": "No products found",
+    "sortBy": "Sort by",
+    "defaultSort": "Default",
+    "nameAsc": "Name",
+    "priceAsc": "Cheapest",
+    "priceDesc": "Most Expensive"
   },
   "Header": {
     "searchPlaceholder": "Search products...",
@@ -33,5 +47,23 @@
     "returnPolicy": "Return Policy",
     "faq": "FAQ",
     "copyright": "All rights reserved."
+  },
+  "ProductDetails": {
+    "loading": "Loading product...",
+    "error": "Something went wrong.",
+    "notFound": "Product not found.",
+    "backToProducts": "Back to products",
+    "rating": "Rating"
+  },
+  "Cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "continueShopping": "Continue Shopping",
+    "remove": "Remove",
+    "summary": "Order Summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "free": "Free",
+    "total": "Total"
   }
 }

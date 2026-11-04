@@ -21,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
     transition:
       background-color 0.2s ease,
       color 0.2s ease;
+    line-height: 1.6;
   }
 
   html[lang='fa'] body {
@@ -46,6 +47,49 @@ const GlobalStyles = createGlobalStyle`
   img {
     max-width: 100%;
     display: block;
+  }
+
+  ::selection {
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: #FFFFFF;
+  }
+
+  input,
+  textarea,
+  select {
+    color: ${({ theme }) => theme.colors.text};
+    background-color: ${({ theme }) => theme.colors.card};
+    border-color: ${({ theme }) => theme.colors.border};
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 2px solid ${({ theme }) => theme.colors.primary};
+    outline-offset: 2px;
+  }
+
+  ::placeholder {
+    color: ${({ theme }) => theme.colors.textSecondary};
+    opacity: 0.8;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colors.surface};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.border};
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => theme.colors.textSecondary};
   }
 `;
 
