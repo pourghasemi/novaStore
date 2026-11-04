@@ -1,17 +1,18 @@
-
 'use client';
 
-import { useEffect, useState, useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 
-import { useProductStore } from '@/stores/productStore';
-import type { FilterOption, SortOption } from '@/types/product';
+import type {
+  Product,
+  FilterOption,
+  SortOption,
+} from '@/types/product';
 
 import ProductCard from '@/components/ProductCard';
 import ProductFilters from '@/components/ProductFilters';
 import ProductSort from '@/components/ProductSort';
-import ProductSkeleton from '@/components/ProductSkeleton';
 
 import Pagination from '@/shared/Pagination';
 import EmptyState from '@/shared/EmptyState';
@@ -26,6 +27,8 @@ import {
 
 interface ProductListProps {
   title: string;
+  initialProducts: Product[];
+  hasError: boolean;
 }
 
 const ITEMS_PER_PAGE = 6;
@@ -37,26 +40,18 @@ const validCategories: FilterOption[] = [
   'digital',
 ];
 
-export default function ProductList({ title }: ProductListProps) {
+export default function ProductList({
+  title,
+  initialProducts,
+  hasError,
+}: ProductListProps) {
   const t = useTranslations('HomePage');
   const searchParams = useSearchParams();
 
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState<SortOption>('default');
 
-  const products = useProductStore((state) => state.products);
-  const loading = useProductStore((state) => state.loading);
-  const error = useProductStore((state) => state.error);
-  const fetchProducts = useProductStore((state) => state.fetchProducts);
-
-  // Fetch products
-  useEffect(() => {
-    if (products.length === 0 && !loading && !error) {
-      fetchProducts();
-    }
-  }, [products.length, loading, error, fetchProducts]);
-
-  // Read category directly from URL
+  // Read category from URL
   const categoryParam = searchParams.get('category');
 
   const activeFilter: FilterOption =
@@ -67,7 +62,7 @@ export default function ProductList({ title }: ProductListProps) {
 
   // Sort products
   const sortedProducts = useMemo(() => {
-    const result = [...products];
+    const result = [...initialProducts];
 
     switch (sortBy) {
       case 'title-asc':
@@ -84,7 +79,7 @@ export default function ProductList({ title }: ProductListProps) {
       default:
         return result;
     }
-  }, [products, sortBy]);
+  }, [initialProducts, sortBy]);
 
   // Filter products
   const filteredProducts =
@@ -106,40 +101,38 @@ export default function ProductList({ title }: ProductListProps) {
     startIndex + ITEMS_PER_PAGE
   );
 
+  // Reset page when filter changes
   const handleFilterChange = () => {
     setCurrentPage(1);
   };
 
+  // Handle sorting
   const handleSortChange = (sort: SortOption) => {
     setSortBy(sort);
     setCurrentPage(1);
   };
 
-  if (loading) {
+  // API error
+  if (hasError) {
     return (
       <ProductListContainer id="products">
         <ProductListHeader>
           <ProductListTitle>{title}</ProductListTitle>
         </ProductListHeader>
 
-        <ProductListGrid>
-          <ProductSkeleton count={3} />
-        </ProductListGrid>
-      </ProductListContainer>
-    );
-  }
-
-  if (error) {
-    return (
-      <ProductListContainer id="products">
         <ErrorMessage message={t('loadError')} />
       </ProductListContainer>
     );
   }
 
-  if (products.length === 0) {
+  // No products
+  if (initialProducts.length === 0) {
     return (
       <ProductListContainer id="products">
+        <ProductListHeader>
+          <ProductListTitle>{title}</ProductListTitle>
+        </ProductListHeader>
+
         <EmptyState message={t('noProductsFound')} />
       </ProductListContainer>
     );
@@ -151,6 +144,7 @@ export default function ProductList({ title }: ProductListProps) {
         activeFilter={activeFilter}
         onFilterChange={handleFilterChange}
       />
+
       <ProductListHeader>
         <ProductListTitle>{title}</ProductListTitle>
 
