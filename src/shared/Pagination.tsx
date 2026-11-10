@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import {
   PaginationContainer,
   PageButton,
@@ -16,6 +17,9 @@ export default function Pagination({
   totalPages,
   onPageChange,
 }: PaginationProps) {
+
+  const t = useTranslations('HomePage')
+
   if (totalPages <= 1) return null;
 
   return (
@@ -25,7 +29,7 @@ export default function Pagination({
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
       >
-        Previous
+        {t('previous')}
       </PageButton>
 
       {Array.from({ length: totalPages }, (_, index) => index + 1).map(
@@ -47,7 +51,7 @@ export default function Pagination({
         disabled={currentPage === totalPages}
         onClick={() => onPageChange(currentPage + 1)}
       >
-        Next
+        {t('next')}
       </PageButton>
     </PaginationContainer>
   );

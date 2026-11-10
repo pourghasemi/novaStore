@@ -28,7 +28,11 @@
     "defaultSort": "پیش‌فرض",
     "nameAsc": "نام",
     "priceAsc": "ارزانترین",
-    "priceDesc": "گرانترین"
+    "priceDesc": "گرانترین",
+    "next": "صفحه بعدی",
+    "previous": "صفحه قبلی",
+    "loadingCategories": "در حال بارگذاری دسته‌بندی‌ها...",
+    "failedToLoadCategories": "بارگذاری دسته‌بندی‌ها با خطا مواجه شد."
   },
   "Header": {
     "searchPlaceholder": "جستجوی محصولات...",
@@ -69,6 +73,11 @@
     "subtotal": "جمع محصولات",
     "shipping": "هزینه ارسال",
     "free": "رایگان",
-    "total": "مبلغ کل"
+    "total": "مبلغ کل",
+    "clearCart": "خالی کردن سبد خرید",
+    "confirmClearCart": "آیا مطمئن هستید که می‌خواهید تمام محصولات سبد خرید را حذف کنید؟",
+    "clearCartTitle": "خالی کردن سبد خرید",
+    "confirm": "بله، خالی کن",
+    "cancel": "انصراف"
   }
 }

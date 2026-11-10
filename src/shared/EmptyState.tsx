@@ -1,3 +1,5 @@
+'use client';
+
 import { EmptyContainer, EmptyMessage } from './EmptyState.styles';
 
 interface EmptyStateProps {

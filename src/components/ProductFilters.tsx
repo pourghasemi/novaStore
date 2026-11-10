@@ -2,7 +2,7 @@
 'use client';
 
 import { useEffect } from 'react';
-
+import { useTranslations } from 'next-intl';
 import type { FilterOption } from '@/types/product';
 import useCategoryFilter from '@/hooks/useCategoryFilter';
 import { useProductStore } from '@/stores/productStore';
@@ -24,6 +24,8 @@ export default function ProductFilters({
   activeFilter,
   onFilterChange,
 }: ProductFiltersProps) {
+
+  const t = useTranslations('HomePage');
   const categories = useProductStore((state) => state.categories);
   const categoriesLoading = useProductStore(
     (state) => state.categoriesLoading
@@ -44,11 +46,11 @@ export default function ProductFilters({
   }, [categories.length, categoriesLoading, categoriesError, fetchCategories]);
 
   if (categoriesLoading) {
-    return <Loading message="Loading categories..." />;
+    return <Loading message={t('loadingCategories')} />;
   }
 
   if (categoriesError) {
-    return <EmptyState message="Failed to load categories." />;
+    return <EmptyState message={t('failedToLoadCategories')} />;
   }
 
   const filters = [

@@ -1,5 +1,7 @@
+
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
+
 import type { Product } from '@/types/product';
 
 interface CartItem {
@@ -12,6 +14,7 @@ interface CartState {
   addToCart: (product: Product) => void;
   decreaseQuantity: (productId: number) => void;
   removeFromCart: (productId: number) => void;
+  clearCart: () => void;
 }
 
 export const useCartStore = create<CartState>()(
@@ -57,6 +60,8 @@ export const useCartStore = create<CartState>()(
             (item) => item.product.id !== productId,
           ),
         })),
+
+      clearCart: () => set({ items: [] }),
     }),
     {
       name: 'nova-shopping-cart',

@@ -28,7 +28,11 @@
     "defaultSort": "Default",
     "nameAsc": "Name",
     "priceAsc": "Cheapest",
-    "priceDesc": "Most Expensive"
+    "priceDesc": "Most Expensive",
+    "next": "Next Page",
+    "previous": "Previous page",
+    "loadingCategories": "Loading categories...",
+    "failedToLoadCategories": "Failed to load categories."
   },
   "Header": {
     "searchPlaceholder": "Search products...",
@@ -69,6 +73,11 @@
     "subtotal": "Subtotal",
     "shipping": "Shipping",
     "free": "Free",
-    "total": "Total"
+    "total": "Total",
+    "clearCart": "Clear Cart",
+    "confirmClearCart": "Are you sure you want to remove all products from your cart?",
+    "clearCartTitle": "Clear Shopping Cart",
+    "confirm": "Yes, clear cart",
+    "cancel": "Cancel"
   }
 }

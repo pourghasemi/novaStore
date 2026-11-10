@@ -1,10 +1,11 @@
-'use client';
 
+'use client';
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { Link } from '@/i18n/navigation';
 import { useCartStore } from '@/stores/cartStore';
-
+import ConfirmModal from '@/shared/Modal';
 import {
   Container,
   PageTitle,
@@ -29,7 +30,9 @@ import {
 
 export default function Cart() {
   const t = useTranslations('Cart');
+  const [showClearModal, setShowClearModal] = useState(false);
 
+  const clearCart = useCartStore((state) => state.clearCart);
   const items = useCartStore((state) => state.items);
   const addToCart = useCartStore((state) => state.addToCart);
   const decreaseQuantity = useCartStore(
@@ -44,6 +47,11 @@ export default function Cart() {
       total + item.product.price * item.quantity,
     0,
   );
+
+  const handleClearCart = () => {
+    clearCart();
+    setShowClearModal(false);
+  };
 
   if (items.length === 0) {
     return (
@@ -139,14 +147,24 @@ export default function Cart() {
             <span>${totalPrice.toFixed(2)}</span>
           </TotalPrice>
 
-          <ContinueButton
-            href="/"
-            $fullWidth
-          >
+          <RemoveButton onClick={() => setShowClearModal(true)}>
+            {t('clearCart')}
+          </RemoveButton>
+
+          <ContinueButton href="/" $fullWidth>
             {t('continueShopping')}
           </ContinueButton>
         </Summary>
       </CartContent>
+      <ConfirmModal
+        isOpen={showClearModal}
+        title={t('clearCartTitle')}
+        message={t('confirmClearCart')}
+        confirmText={t('confirm')}
+        cancelText={t('cancel')}
+        onConfirm={handleClearCart}
+        onCancel={() => setShowClearModal(false)}
+      />
     </Container>
   );
 }
