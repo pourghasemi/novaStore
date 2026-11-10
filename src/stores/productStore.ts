@@ -2,10 +2,7 @@ import { create } from 'zustand';
 
 import type { Product, ProductCategory } from '@/types/product';
 import { handleApiError } from '@/services/handleApiError';
-import {
-  getProducts,
-  getProductCategories,
-} from '@/services/productService';
+import { getProductCategories } from '@/services/productService';
 
 interface ProductState {
   products: Product[];
@@ -18,7 +15,6 @@ interface ProductState {
   categoriesError: string | null;
 
   setProducts: (products: Product[]) => void;
-  fetchProducts: () => Promise<void>;
   fetchCategories: () => Promise<void>;
 }
 
@@ -38,27 +34,6 @@ export const useProductStore = create<ProductState>((set) => ({
       loading: false,
       error: null,
     });
-  },
-
-  fetchProducts: async () => {
-    set({ loading: true, error: null });
-
-    try {
-      const products = await getProducts();
-
-      set({
-        products,
-        loading: false,
-        error: null,
-      });
-    } catch (error) {
-      const apiError = handleApiError(error);
-
-      set({
-        error: apiError.message,
-        loading: false,
-      });
-    }
   },
 
   fetchCategories: async () => {
