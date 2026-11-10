@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 
 export const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+  process.env.NEXT_PUBLIC_SITE_URL;
 
 export function getMetadata(locale: string): Metadata {
   const isPersian = locale === 'fa';

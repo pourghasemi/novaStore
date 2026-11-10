@@ -4,7 +4,7 @@ import type { MetadataRoute } from 'next';
 import { getProducts } from '@/services/productService';
 
 const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+  process.env.NEXT_PUBLIC_SITE_URL;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const locales = ['fa', 'en'];
