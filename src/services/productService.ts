@@ -1,3 +1,4 @@
+
 import { cache } from 'react';
 import axiosInstance from '@/api/axiosInstance';
 import type { Product, ProductCategory } from '@/types/product';
@@ -14,60 +15,33 @@ interface ApiProduct {
   };
 }
 
+const CATEGORY_MAPPING: Record<string, ProductCategory> = {
+  jewelery: 'jewelry',
+  "men's clothing": 'clothing',
+  "women's clothing": 'clothing',
+  electronics: 'digital',
+};
+
+const mapCategory = (category: string): ProductCategory => {
+  return CATEGORY_MAPPING[category] ?? 'other';
+};
+
 function mapProduct(apiProduct: ApiProduct): Product {
-  let category: ProductCategory;
-
-  switch (apiProduct.category) {
-    case 'jewelery':
-      category = 'jewelry';
-      break;
-
-    case "men's clothing":
-    case "women's clothing":
-      category = 'clothing';
-      break;
-
-    case 'electronics':
-      category = 'digital';
-      break;
-
-    default:
-      category = 'digital';
-  }
-
   return {
     id: apiProduct.id,
     name: apiProduct.title,
     image: apiProduct.image,
     price: apiProduct.price,
-    category,
+    category: mapCategory(apiProduct.category),
     rating: apiProduct.rating?.rate,
   };
 }
-
-const mapCategory = (category: string): ProductCategory => {
-  switch (category) {
-    case 'jewelery':
-      return 'jewelry';
-
-    case "men's clothing":
-    case "women's clothing":
-      return 'clothing';
-
-    case 'electronics':
-      return 'digital';
-
-    default:
-      throw new Error(`Unknown product category: ${category}`);
-  }
-};
 
 export const getProducts = async (): Promise<Product[]> => {
   const response = await axiosInstance.get<ApiProduct[]>('/products');
 
   return response.data.map(mapProduct);
 };
-
 
 export const getProductById = cache(
   async (id: number): Promise<Product> => {

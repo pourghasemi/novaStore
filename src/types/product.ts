@@ -1,7 +1,8 @@
 export type ProductCategory =
   | 'jewelry'
   | 'clothing'
-  | 'digital';
+  | 'digital'
+  | 'other';
 
 export interface Product {
   id: number;
